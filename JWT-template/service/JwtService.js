@@ -1,7 +1,7 @@
 'use strict';
 
-import fs from 'fs';
-import jwt from 'jsonwebtoken';
+const fs =  require('fs');
+const jwt = require('jsonwebtoken');
 
 class JwtService {
 
@@ -23,9 +23,9 @@ class JwtService {
 
         // Token signing options
         var signOptions = {
-            issuer:  $Options.issuer,
-            subject:  $Options.subject,
-            audience:  $Options.audience,
+            issuer:  sOptions.issuer,
+            subject:  sOptions.subject,
+            audience:  sOptions.audience,
             expiresIn:  "30d",    // 30 days validity
             algorithm:  "RS256"    
         };
@@ -41,9 +41,9 @@ class JwtService {
     }  
     */
     var verifyOptions = {
-        issuer:  $Option.issuer,
-        subject:  $Option.subject,
-        audience:  $Option.audience,
+        issuer:  vOption.issuer,
+        subject:  vOption.subject,
+        audience:  vOption.audience,
         expiresIn:  "30d",
         algorithm:  ["RS256"]
     };
@@ -61,3 +61,5 @@ class JwtService {
         //returns null if token is invalid
     }
 }
+
+module.exports = {JwtService};
